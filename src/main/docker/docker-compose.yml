@@ -1,4 +1,4 @@
-version: '1'
+version: '2'
 
 services:
   app:
@@ -6,6 +6,8 @@ services:
     build:
       context: .
     container_name: app
+    ports:
+      - "8082:8082"
     depends_on:
       - db
     environment:
@@ -20,3 +22,4 @@ services:
     environment:
       - POSTGRES_USER=winavit
       - POSTGRES_PASSWORD=winavit2020
+      - POSTGRES_DB=bits

@@ -4,10 +4,7 @@ import com.bits.assignment.policy.ss_assg_policy.model.Policy;
 import com.bits.assignment.policy.ss_assg_policy.model.Premium;
 import com.bits.assignment.policy.ss_assg_policy.reepository.PolicyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;
 import java.util.*;
@@ -23,7 +20,7 @@ public class PolicyController {
     PremiumController premCont;
 
     @GetMapping("/policies")
-    public List<Policy> getPolicies(@PathVariable Long custId) {
+    public List<Policy> getPolicies() {
 
         List<Policy> policies =  policyRepo.findAll();
         return policies;
@@ -45,6 +42,12 @@ public class PolicyController {
         else
             throw new RuntimeException("Policy Not Found");
 
+    }
+
+    @PostMapping("/policy/create")
+    public Policy createPolicy(@RequestBody Policy policy) {
+       policy = policyRepo.save(policy);
+        return  policy;
     }
 
     private Date dueDateCalc(Policy policy) {
