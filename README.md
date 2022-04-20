@@ -1,5 +1,12 @@
 # ss_assg_policy
 
+Policy Microservice - Based on Java , Spring boot
+
+Satyanarayan  Nanda (2020mt93631)
+Group 16
+Scalable Services Assignment
+BITS Pilani WILP
+
 To run this application , please have java ,maven, Docker installed in your system
 
 1. Clone this repository
